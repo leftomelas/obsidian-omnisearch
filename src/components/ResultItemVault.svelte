@@ -98,8 +98,8 @@
       },
     }
   }
-  let elFolderPathIcon: HTMLElement
-  let elFilePathIcon: HTMLElement
+  let elFolderPathIcon: HTMLElement | null = null
+  let elFilePathIcon: HTMLElement | null = null
   let elEmbedIcon: HTMLElement
 
   $: {

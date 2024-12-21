@@ -110,9 +110,7 @@
 
   async function prevSearchHistory() {
     // Filter out the empty string, if it's there
-    const history = (await plugin.searchHistory.getHistory()).filter(
-      s => s
-    )
+    const history = (await plugin.searchHistory.getHistory()).filter(s => s)
     if (++historySearchIndex >= history.length) {
       historySearchIndex = 0
     }
@@ -121,9 +119,7 @@
   }
 
   async function nextSearchHistory() {
-    const history = (await plugin.searchHistory.getHistory()).filter(
-      s => s
-    )
+    const history = (await plugin.searchHistory.getHistory()).filter(s => s)
     if (--historySearchIndex < 0) {
       historySearchIndex = history.length ? history.length - 1 : 0
     }
@@ -253,7 +249,7 @@
     modal.close()
   }
 
-  function      switchToInFileModal(): void {
+  function switchToInFileModal(): void {
     // Do nothing if the selectedNote is a PDF,
     // or if there is 0 match (e.g indexing in progress)
     if (
@@ -322,7 +318,7 @@
 <ModalContainer>
   {#each resultNotes as result, i}
     <ResultItemVault
-      {plugin}
+      plugin="{plugin}"
       selected="{i === selectedIndex}"
       note="{result}"
       on:mousemove="{_ => (selectedIndex = i)}"

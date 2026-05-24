@@ -7,6 +7,11 @@ settings:
 overrides:
   moment@>=2.18.0 <2.29.4: '>=2.29.4'
 
+patchedDependencies:
+  dexie@4.4.2:
+    hash: meeatnhtx2viqkyo6ranqmlgwu
+    path: patches/dexie@4.4.2.patch
+
 importers:
 
   .:
@@ -15,8 +20,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1
       dexie:
-        specifier: ^4.4.2
-        version: 4.4.2
+        specifier: 4.4.2
+        version: 4.4.2(patch_hash=meeatnhtx2viqkyo6ranqmlgwu)
       es-toolkit:
         specifier: ^1.46.1
         version: 1.46.1
@@ -5621,7 +5626,7 @@ snapshots:
 
   devalue@5.8.1: {}
 
-  dexie@4.4.2: {}
+  dexie@4.4.2(patch_hash=meeatnhtx2viqkyo6ranqmlgwu): {}
 
   diff-sequences@27.5.1: {}
 

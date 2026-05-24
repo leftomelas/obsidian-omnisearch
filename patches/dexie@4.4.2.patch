@@ -1,0 +1,36 @@
+diff --git a/import-wrapper-prod.mjs b/import-wrapper-prod.mjs
+index 181b9caedd3d5445e2584cb8b0a1eaf39b69d136..c75d929c9aff366a327ee91ad085fb12ed5f3391 100644
+--- a/import-wrapper-prod.mjs
++++ b/import-wrapper-prod.mjs
+@@ -1,12 +1,7 @@
+ // Making the module version consumable via require - to prohibit
+ // multiple occurrancies of the same module in the same app
+ // (dual package hazard, https://nodejs.org/api/packages.html#dual-package-hazard)
+-import _Dexie from "./dist/dexie.min.js";
+-const DexieSymbol = Symbol.for("Dexie");
+-const Dexie = globalThis[DexieSymbol] || (globalThis[DexieSymbol] = _Dexie);
+-if (_Dexie.semVer !== Dexie.semVer) {
+-    throw new Error(`Two different versions of Dexie loaded in the same app: ${_Dexie.semVer} and ${Dexie.semVer}`);
+-}
++import Dexie from "./dist/dexie.min.js";
+ const {
+     liveQuery, mergeRanges, rangesOverlap, RangeSet, cmp, Entity,
+     PropModification, replacePrefix, add, remove,
+diff --git a/import-wrapper.mjs b/import-wrapper.mjs
+index d435ba25f942b4f5c4884d43d3b198b46f0aa774..6f2bf83651c1775b02a4e4f896fb49bd95acb4f6 100644
+--- a/import-wrapper.mjs
++++ b/import-wrapper.mjs
+@@ -1,12 +1,7 @@
+ // Making the module version consumable via require - to prohibit
+ // multiple occurrancies of the same module in the same app
+ // (dual package hazard, https://nodejs.org/api/packages.html#dual-package-hazard)
+-import _Dexie from "./dist/dexie.js";
+-const DexieSymbol = Symbol.for("Dexie");
+-const Dexie = globalThis[DexieSymbol] || (globalThis[DexieSymbol] = _Dexie);
+-if (_Dexie.semVer !== Dexie.semVer) {
+-    throw new Error(`Two different versions of Dexie loaded in the same app: ${_Dexie.semVer} and ${Dexie.semVer}`);
+-}
++import Dexie from "./dist/dexie.js";
+ const { liveQuery, mergeRanges, rangesOverlap, RangeSet, cmp, Entity,
+     PropModification, replacePrefix, add, remove,
+     DexieYProvider } = Dexie;

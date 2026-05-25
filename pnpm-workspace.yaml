@@ -1,7 +1,6 @@
 allowBuilds:
   esbuild: true
   svelte-preprocess: true
-overrides:
-  "moment@>=2.18.0 <2.29.4": ">=2.29.4"
+  unrs-resolver: true
 patchedDependencies:
   dexie: patches/dexie.patch

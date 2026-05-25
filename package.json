@@ -55,13 +55,5 @@
     "search-query-parser": "^1.6.0",
     "svelte-multiselect": "github:janosh/svelte-multiselect"
   },
-  "pnpm": {
-    "overrides": {
-      "moment@>=2.18.0 <2.29.4": ">=2.29.4"
-    },
-    "patchedDependencies": {
-      "dexie@4.4.2": "patches/dexie@4.4.2.patch"
-    }
-  },
-  "packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724"
+  "packageManager": "pnpm@11.3.0"
 }

@@ -190,7 +190,6 @@ export class SearchEngine {
         }
         const mtime = storedFields?.mtime as number
         const now = new Date().valueOf()
-        console.log(now)
         const daysElapsed = (now - mtime) / (24 * 3600_000)
 
         // Documents boost

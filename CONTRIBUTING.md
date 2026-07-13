@@ -26,6 +26,7 @@ If you wish to work on one of these issues, leave a comment and I'll assign it t
 - Simple is better. OOP is not inevitable. Simple functions often work as well, if not better.
 - If you must use OOP, avoid inheritance as much as possible, no one likes digging several layers of abstraction.
 - Comment the code. What, why, how, just make your intent clear.
+- Write small PRs. My free time is as precious as yours.
 
 ## Philosphy
 
@@ -45,3 +46,8 @@ Always respect those UI & UX points:
 - .ts files must be formatted with "Prettier ESLint"
 - .svelte files must be formatted with "Svelte for VS Code"
 - All CSS code **must** go into styles.css, and all classes should be properly named for easy customization. Do **not** use `<style>` tags in Svelte components
+
+## About AI
+
+- You may use AI to **help** you write your code. I insist on the **help**.
+- If you can't be bothered to write your own code, I won't bother to read it.

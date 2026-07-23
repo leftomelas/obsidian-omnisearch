@@ -413,6 +413,9 @@ export class SearchEngine {
     query: Query,
     options?: Partial<{ singleFilePath?: string }>
   ): Promise<ResultNote[]> {
+    // Clear highlight regex cache for fresh search
+    this.plugin.textProcessor.clearHighlightCache()
+
     // Get the raw results
     let results: SearchResult[]
     if (this.plugin.settings.simpleSearch) {
@@ -462,7 +465,7 @@ export class SearchEngine {
     }
 
     // Map the raw results to get usable suggestions
-    const resultNotes = results.map(result => {
+    const resultNotes = results.map((result, index) => {
       logVerbose('Locating matches for', result.id)
       let note = documents.find(d => d.path === result.id)
       if (!note) {
@@ -491,11 +494,11 @@ export class SearchEngine {
       logVerbose('Matching tokens:', foundWords)
 
       logVerbose('Getting matches locations...')
-      const matches = this.plugin.textProcessor.getMatches(
-        note.content,
-        foundWords,
-        query
-      )
+      // Only compute matches eagerly for first 10 visible results
+      // Remaining results compute matches lazily in ResultItemVault on mount
+      const matches = index < 10
+        ? this.plugin.textProcessor.getMatches(note.content, foundWords, query)
+        : []
       logVerbose(`Matches for note "${note.path}"`, matches)
       const resultNote: ResultNote = {
         score: result.score,
